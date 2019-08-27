@@ -22,6 +22,7 @@ class StatsController < ApplicationController
   def stat_params
     params.require(:stat).permit(:wins, :losses, :overtime_losses, :points,
                                  :goal_leader, :assist_leader, :points_leader,
-                                 :wins_leader, :results, :notes)
+                                 :wins_leader, :results, :notes, :goal_total,
+                                 :assist_total, :points_total, :wins_total)
   end
 end

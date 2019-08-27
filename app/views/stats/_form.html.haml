@@ -11,17 +11,29 @@
 = f.label :points
 = f.number_field :points, value: @stats.first.points
 
-= f.label :goals_leader
+= f.label :goal_leader
 = f.text_field :goal_leader, value: @stats.first.goal_leader
+
+= f.label :goal_total
+= f.number_field :goal_total, value: @stats.first.goal_total
 
 = f.label :assist_leader
 = f.text_field :assist_leader, value: @stats.first.assist_leader
 
+= f.label :assist_total
+= f.number_field :assist_total, value: @stats.first.assist_total
+
 = f.label :points_leader
 = f.text_field :points_leader, value: @stats.first.points_leader
 
+= f.label :points_total
+= f.number_field :points_total, value: @stats.first.points_total
+
 = f.label :wins_leader
 = f.text_field :wins_leader, value: @stats.first.wins_leader
+
+= f.label :wins_total
+= f.number_field :wins_total, value: @stats.first.wins_total
 
 = f.label :results
 = f.select :results, options_for_select(['Missed Playoffs', '1st Round', '2nd Round', 'Conferenece Finals', 'Stanley Cup Finals', 'Stanley Cup Champions!'], selected: @stats.first.results)
