@@ -1,0 +1,9 @@
+= link_to 'Add Player', new_franchise_season_player_path
+= link_to 'Home', root_path
+
+%ul
+  - @players.each do |player|
+    %li
+      = player.name
+      = link_to 'Edit Player', edit_franchise_season_player_path(id: player.id)
+      = link_to 'Delete Player', franchise_season_player_path(id: player.id), method: :delete

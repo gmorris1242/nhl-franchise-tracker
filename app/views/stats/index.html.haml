@@ -1,0 +1,48 @@
+.row
+  .column
+
+    = link_to 'Edit Stats', edit_franchise_season_stat_path(id: @stats.first.id)
+    = link_to 'Season', franchise_seasons_path
+    = link_to 'Home', root_path
+
+    %p
+      %b Wins:
+      = @stats.first.wins
+
+    %p
+      %b Losses:
+      = @stats.first.losses
+
+    %p
+      %b OTL:
+      = @stats.first.overtime_losses
+
+    %p
+      %b Points:
+      = @stats.first.points
+
+    %p
+      %b Results:
+      = @stats.first.results
+
+    %h3 LEADERS
+
+    %p
+      %b Goals:
+      = @stats.first.goal_leader
+
+    %p
+      %b Assists:
+      = @stats.first.assist_leader
+
+    %p
+      %b Points:
+      = @stats.first.points_leader
+
+    %p
+      %b Wins:
+      = @stats.first.wins_leader
+
+    %p
+      %b Notes:
+      = @stats.first.notes

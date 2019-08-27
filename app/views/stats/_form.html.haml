@@ -1,0 +1,30 @@
+
+= f.label :wins
+= f.number_field :wins, value: @stats.first.wins
+
+= f.label :losses
+= f.number_field :losses, value: @stats.first.losses
+
+= f.label :overtime_losses
+= f.number_field :overtime_losses, value: @stats.first.overtime_losses
+
+= f.label :points
+= f.number_field :points, value: @stats.first.points
+
+= f.label :goals_leader
+= f.text_field :goal_leader, value: @stats.first.goal_leader
+
+= f.label :assist_leader
+= f.text_field :assist_leader, value: @stats.first.assist_leader
+
+= f.label :points_leader
+= f.text_field :points_leader, value: @stats.first.points_leader
+
+= f.label :wins_leader
+= f.text_field :wins_leader, value: @stats.first.wins_leader
+
+= f.label :results
+= f.select :results, options_for_select(['Missed Playoffs', '1st Round', '2nd Round', 'Conferenece Finals', 'Stanley Cup Finals', 'Stanley Cup Champions!'], selected: @stats.first.results)
+
+= f.label :notes
+= f.text_area :notes, value: @stats.first.notes

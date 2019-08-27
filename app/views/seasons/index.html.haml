@@ -1,0 +1,10 @@
+.row
+  .column
+    %h1 Seasons
+    = link_to 'New Season', new_franchise_season_path
+    = link_to 'Home', root_path
+    %ul
+      - @seasons.each do |season|
+        %li
+          = link_to season.year, franchise_season_path(season.franchise_id, season.id)
+          = link_to 'Delete', franchise_season_path(season.franchise_id, season.id), method: :delete

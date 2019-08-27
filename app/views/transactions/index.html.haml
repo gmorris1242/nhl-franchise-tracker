@@ -1,0 +1,9 @@
+= link_to 'Add Transaction', new_franchise_season_transaction_path
+= link_to 'Home', root_path
+
+%ul
+  - @transactions.each do |transaction|
+    %li
+      = transaction.details
+      = link_to 'Edit Transaction', edit_franchise_season_transaction_path(id: transaction.id)
+      = link_to 'Delete Transaction', franchise_season_transaction_path(id: transaction.id), method: :delete
