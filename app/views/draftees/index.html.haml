@@ -1,9 +1,16 @@
-= link_to 'Add Draftee', new_franchise_season_draftee_path
-= link_to 'Home', root_path
+#roster
+  .row
+    .column.text-center
+      = render 'layouts/season_nav', season_id: params[:season_id]
 
-%ul
-  - @draftees.each do |draftee|
-    %li
-      = draftee.name
-      = link_to 'Edit Player', edit_franchise_season_draftee_path(id: draftee.id)
-      = link_to 'Delete Player', franchise_season_draftee_path(id: draftee.id), method: :delete
+%section
+  .row
+    .column.text-center
+      %h2.heading Draft
+      = link_to 'Add Player', new_franchise_season_draftee_path, class: 'btn'
+      %ul
+        - @draftees.each do |draftee|
+          %li
+            = draftee.name
+            = link_to 'Edit Player', edit_franchise_season_draftee_path(id: draftee.id)
+            = link_to 'Delete Player', franchise_season_draftee_path(id: draftee.id), method: :delete

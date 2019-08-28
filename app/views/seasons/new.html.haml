@@ -5,6 +5,6 @@
         = f.hidden_field :franchise_id, value: params[:franchise_id]
         .form-group
           = f.label :year
-          = f.text_field :year
+          = f.text_field :year, required: true
         .form-group
           = f.submit 'Create', class: 'btn'

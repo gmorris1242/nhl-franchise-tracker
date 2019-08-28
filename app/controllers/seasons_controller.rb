@@ -8,6 +8,21 @@ class SeasonsController < ApplicationController
     @season.save
     @season.build_stat.save
 
+    # COPIES LAST YEARS ROSTER OVER
+
+    franchise = Franchise.find(params[:franchise_id])
+    last_season = franchise.seasons.count - 2
+
+    last_seasons_players = franchise.seasons[last_season].players
+
+    last_seasons_players.each do |player|
+      player_copy = player.dup
+
+      player_copy.contract_length = player_copy.contract_length > 0 ? player_copy.contract_length - 1 : player_copy._contract_length
+
+      Player.new(player_copy.attributes.merge(season_id: @season.id)).save
+    end
+
     redirect_to franchise_seasons_path
   end
 

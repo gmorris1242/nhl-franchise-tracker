@@ -9,7 +9,7 @@ class DrafteesController < ApplicationController
 
     redirect_to franchise_season_draftees_path
   end
-  #
+
   def edit
     @draftee = Draftee.find(params[:id])
   end

@@ -25,11 +25,15 @@ class PlayersController < ApplicationController
   end
 
   def destroy
-    @player = Player.where(season_id: params[:season_id], id: params[:id])
-    @player.first.destroy
-
+    @player = Player.find(params[:id])
+    @player.destroy
     flash[:notice] = 'Post Deleted.'
-    redirect_to franchise_seasons_path
+    redirect_to franchise_season_players_path
+  end
+
+  def show
+    @player = Player.find(params[:id])
+
   end
 
   private

@@ -1,0 +1,46 @@
+.modal
+  .card.relative
+    .exit.text.bold x
+    .row
+      .column.lg-6
+        %p.text
+          %b Name:
+          #{@player.name}
+        %p.text
+          %b Position:
+          #{@player.position}
+        %p.text
+          %b Overall:
+          #{@player.overall}
+        %p.text
+          %b Player Type:
+          #{@player.player_type}
+        %p.text
+          %b Salary:
+          #{@player.salary}
+        %p.text
+          %b Years Remaining:
+          #{@player.contract_length}
+        %p.text
+          %b Age:
+          #{@player.age}
+        %p.text
+          %b Acquired:
+          #{@player.acquired}
+
+      .column.lg-6
+        .text-center
+          = image_tag @player.img.nil? ? @player.img : 'placeholder.jpg'
+      .column
+        = link_to 'Edit Player', edit_franchise_season_player_path(id: @player.id), class: 'text', class: 'btn'
+        = button_to 'Delete', franchise_season_player_path(id: @player.id), method: :delete, class: 'btn'
+        -# = link_to 'Delete Player', franchise_season_player_path(id: @player.id), method: :delete, class: 'btn'
+
+:javascript
+  $('.modal, .exit').click(function() {
+    $('.modal').remove();
+  });
+
+  $('.modal .card').click(function(e) {
+    e.stopPropagation();
+  });

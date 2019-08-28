@@ -8,50 +8,52 @@
       .column.text-center
         %h2.heading Roster
         = link_to 'Add Player', new_franchise_season_player_path, class: 'btn'
-        = link_to 'Import Last Years Roster', '#', class: 'btn'
 
   %section.lineup
     .row
       .column.lg-4
         %h3.heading Left Wing
-        - @players.each do |player|
-          - if player.position == 'Left Wing'
-            .player-card
-              = link_to player.name, edit_franchise_season_player_path(id: player.id), class: 'text'
-              %span.text.bold #{player.player_type} #{player.overall}
+        - organize_roster(@players,'Left Wing').each do |player|
+          .player-card{data: {player_id: player.id}}
+            %span.text=player.name
+            %span.text.bold #{player.player_type} #{player.overall}
       .column.lg-4
         %h3.heading Center
-        - @players.each do |player|
-          - if player.position == 'Center'
-            .player-card
-              = link_to player.name, edit_franchise_season_player_path(id: player.id), class: 'text'
-              %span.text.bold #{player.player_type} #{player.overall}
+        - organize_roster(@players,'Center').each do |player|
+          .player-card{data: {player_id: player.id}}
+            %span.text=player.name
+            %span.text.bold #{player.player_type} #{player.overall}
       .column.lg-4
         %h3.heading Right Wing
-        - @players.each do |player|
-          - if player.position == 'Right Wing'
-            .player-card
-              = link_to player.name, edit_franchise_season_player_path(id: player.id), class: 'text'
-              %span.text.bold #{player.player_type} #{player.overall}
+        - organize_roster(@players,'Right Wing').each do |player|
+          .player-card{data: {player_id: player.id}}
+            %span.text=player.name
+            %span.text.bold #{player.player_type} #{player.overall}
     .row
       .column.lg-4
         %h3.heading Left Defense
-        - @players.each do |player|
-          - if player.position == 'Left Defense'
-            .player-card
-              = link_to player.name, edit_franchise_season_player_path(id: player.id), class: 'text'
-              %span.text.bold #{player.player_type} #{player.overall}
+        - organize_roster(@players,'Left Defense').each do |player|
+          .player-card{data: {player_id: player.id}}
+            %span.text=player.name
+            %span.text.bold #{player.player_type} #{player.overall}
       .column.lg-4
         %h3.heading Right Defense
-        - @players.each do |player|
-          - if player.position == 'Right Defense'
-            .player-card
-              = link_to player.name, edit_franchise_season_player_path(id: player.id), class: 'text'
-              %span.text.bold #{player.player_type} #{player.overall}
+        - organize_roster(@players,'Right Defense').each do |player|
+          .player-card{data: {player_id: player.id}}
+            %span.text=player.name
+            %span.text.bold #{player.player_type} #{player.overall}
       .column.lg-4
         %h3.heading Goalie
-        - @players.each do |player|
-          - if player.position == 'Goalie'
-            .player-card
-              = link_to player.name, edit_franchise_season_player_path(id: player.id), class: 'text'
-              %span.text.bold #{player.player_type} #{player.overall}
+        - organize_roster(@players,'Goalie').each do |player|
+          .player-card{data: {player_id: player.id}}
+            %span.text=player.name
+            %span.text.bold #{player.player_type} #{player.overall}
+
+:javascript
+  $('.player-card').click(function() {
+    var id = $(this).data('player-id')
+    $.get({
+      url: 'players/' + id,
+      dataType: 'script'
+    });
+  })
