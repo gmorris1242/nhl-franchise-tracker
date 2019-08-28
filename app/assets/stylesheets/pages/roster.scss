@@ -1,0 +1,19 @@
+#roster {
+  .lineup {
+    .heading {
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .column {
+      text-align: center;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        margin-bottom: 1rem;
+        display: inline-block;
+      }
+    }
+  }
+}

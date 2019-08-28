@@ -1,0 +1,63 @@
+header {
+  .flex-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav {
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+
+      .links {
+        font-family: $heading-font;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $black;
+        margin: 1rem;
+        font-size: 20px;
+
+        &:hover { color: $orange; }
+      }
+
+      .nested-link:hover {
+        .nested-nav {
+          max-height: none;
+          padding: 10px 20px;
+          border: 2px solid;
+        }
+      }
+
+      .nested-nav {
+        font-family: $text-font;
+        position: absolute;
+        overflow: hidden;
+        max-height: 0;
+        text-decoration: none;
+        list-style: none;
+        transform: translatex(7px);
+        z-index: 9999;
+
+        &:hover {
+          max-height: none;
+          padding: 10px 20px;
+          border: 2px solid $black;
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+
+          &:hover {
+            text-decoration: underline;
+            color: $orange;
+          }
+        }
+      }
+    }
+  }
+
+  .nhl-logo { max-width: 125px; }
+}

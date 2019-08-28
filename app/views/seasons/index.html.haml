@@ -1,10 +1,26 @@
-.row
-  .column
-    %h1 Seasons
-    = link_to 'New Season', new_franchise_season_path
-    = link_to 'Home', root_path
-    %ul
-      - @seasons.each do |season|
-        %li
-          = link_to season.year, franchise_season_path(season.franchise_id, season.id)
-          = link_to 'Delete', franchise_season_path(season.franchise_id, season.id), method: :delete
+%section#seasons
+  .row
+    .column
+      %h1.heading Seasons
+      = link_to 'New Season', new_franchise_season_path, class: 'btn'
+      %ul
+        - @seasons.each do |season|
+          %li.text
+            = link_to season.year, franchise_season_stats_path(season.franchise_id, season.id), class: 'bold link'
+            .wrapper
+              %span.text
+                %b.orange Wins:
+                #{season.stat.wins}
+              %span.text
+                %b.orange Losses:
+                #{season.stat.losses}
+              %span.text
+                %b.orange Overtime Losses:
+                #{season.stat.overtime_losses}
+              %span.text
+                %b.orange Points:
+                #{season.stat.points}
+              %span.text
+                %b.orange Results:
+                #{season.stat.results}
+            = link_to 'Delete', franchise_season_path(season.franchise_id, season.id), method: :delete, class: 'btn'

@@ -1,6 +1,11 @@
 /* GRID */
 * { box-sizing: border-box; }
 
+section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .row {
   max-width: 1200px;
   margin-right: auto;
@@ -17,7 +22,6 @@
   float: left;
   margin-right: 10px;
   margin-left: 10px;
-  margin-bottom: 20px;
   width: calc(100% - 20px);
   position: relative;
 }
@@ -322,4 +326,9 @@
 
 /*HELPERS*/
 .inline-block { display: inline-block; }
+.block { display: block; }
 .relative { position: relative; }
+.flex-wrapper { display: flex; }
+.float-right { float: right; }
+.float-left { float: left; }
+.bold { font-weight: bold; }

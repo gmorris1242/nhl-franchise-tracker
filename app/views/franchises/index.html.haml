@@ -1,11 +1,14 @@
-.row
-  .column
-    %h1 Franchise
-    =link_to 'New Franchise', new_franchise_path
-    -@franchises.each do |franchise|
-      .card
-        = link_to franchise_seasons_path(franchise.id) do
-          %h2.inline-block.inline-block=franchise.name
-          %span=franchise.created_at
-          %p=franchise.id
-        = link_to 'Delete', franchise_path(id: franchise.id), method: :delete
+%section#franchises
+  .row
+    .column
+      %h1.heading Franchise
+      =link_to 'New Franchise', new_franchise_path, class: 'btn'
+      -@franchises.each do |franchise|
+        .card.relative{ class: franchise.name.tr(' ', '-').downcase}
+          = link_to franchise_seasons_path(franchise.id), class: 'link-wrapper' do
+            .wrapper
+              %h2.heading=franchise.name
+            = image_tag get_team_logo(franchise.name), class: 'logo'
+        %p.text.fake-btn Seasons: #{franchise.seasons.count}
+        %p.text.fake-btn Created: #{franchise.created_at.strftime("%b %d, %Y")}
+        = link_to 'Delete', franchise_path(id: franchise.id), method: :delete, class: 'btn'

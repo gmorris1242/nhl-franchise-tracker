@@ -1,0 +1,34 @@
+//TYPOGRAPHY
+.heading {
+  font-family: $heading-font;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 1rem 0;
+  font-size: 45px;
+}
+
+.text {
+  font-family: $text-font;
+  margin: 0 0 1rem 0;
+}
+
+
+//HELPERS
+.orange { color: $orange; }
+
+
+//TEAM COLORS
+.detroit-red-wings {
+  background: #ce1126;
+  color: $white;
+}
+
+.minnesota-wild {
+  background: #024930;
+  color: $white;
+}
+
+.new-york-islanders {
+  background: #003087;
+  color: $white;
+}

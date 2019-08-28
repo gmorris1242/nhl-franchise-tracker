@@ -1,6 +1,10 @@
-= form_for :season, url: franchise_seasons_path, local: true do |f|
-  = f.hidden_field :franchise_id, value: params[:franchise_id]
-
-  = f.label :year
-  = f.text_field :year
-  = f.submit
+%section#new-season
+  .row
+    .column
+      = form_for :season, url: franchise_seasons_path, local: true do |f|
+        = f.hidden_field :franchise_id, value: params[:franchise_id]
+        .form-group
+          = f.label :year
+          = f.text_field :year
+        .form-group
+          = f.submit 'Create', class: 'btn'

@@ -1,0 +1,15 @@
+%header
+  .row
+    .column
+      .flex-wrapper
+        .logo
+          = image_tag 'logos/nhl_logo.png', class: 'nhl-logo'
+        %ul.nav
+          %li= link_to 'Franchises', franchises_path, class: 'links'
+          - unless get_seasons_for_nav.empty?
+            %li.nested-link
+              = link_to 'Seasons', franchise_seasons_path, class: 'links'
+              %ul.nested-nav
+                - get_seasons_for_nav.each do |season|
+                  %li
+                    = link_to season.year, franchise_season_stats_path(season.franchise_id, season.id)

@@ -1,0 +1,18 @@
+form {
+  * { font-family: $text-font; }
+
+  label {
+    color: $orange;
+    font-weight: bold;
+  }
+
+  input,
+  textarea,
+  select {
+    margin-bottom: 1rem;
+    width: 100%;
+    font-size: 16px;
+    padding: 5px;
+  }
+
+}

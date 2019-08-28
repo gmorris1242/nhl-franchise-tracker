@@ -1,28 +1,28 @@
 = f.hidden_field :season_id, value: params[:season_id]
-
-= f.label :name
-= f.text_field :name
-
-= f.label :img
-= f.text_field :img
-
-= f.label :position
-= f.text_field :position
-
-= f.label :salary
-= f.number_field :salary, step: :any
-
-= f.label :contract_length
-= f.number_field :contract_length
-
-= f.label :overall
-= f.number_field :overall
-
-= f.label :player_type
-= f.text_field :player_type
-
-= f.label :age
-= f.number_field :age
-
-= f.label :acquired
-= f.text_area :acquired
+.column.lg-6
+  = f.label :name
+  = f.text_field :name
+.column.lg-6
+  = f.label :img
+  = f.text_field :img
+.column.lg-6
+  = f.label :position
+  = f.select :position, options_for_select(['Center', 'Left Wing', 'Right Wing', 'Left Defense', 'Right Defense', 'Goalie'], selected: @player.nil? ? 'Center' : @player.try(:position))
+.column.lg-6
+  = f.label :salary
+  = f.number_field :salary, step: :any
+.column.lg-6
+  = f.label :contract_length
+  = f.number_field :contract_length
+.column.lg-6
+  = f.label :overall
+  = f.number_field :overall
+.column.lg-6
+  = f.label :player_type
+  = f.text_field :player_type
+.column.lg-6
+  = f.label :age
+  = f.number_field :age
+.column
+  = f.label :acquired
+  = f.text_area :acquired
