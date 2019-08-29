@@ -30,10 +30,10 @@
 
       .column.lg-6
         .text-center
-          = image_tag @player.img.nil? ? @player.img : 'placeholder.jpg'
+          = image_tag get_player_image(@player)
+          = link_to 'Edit Player', edit_franchise_season_player_path(id: @player.id), class: 'text', class: 'btn'
+          = button_to 'Delete', franchise_season_player_path(id: @player.id), method: :delete, class: 'btn'
       .column
-        = link_to 'Edit Player', edit_franchise_season_player_path(id: @player.id), class: 'text', class: 'btn'
-        = button_to 'Delete', franchise_season_player_path(id: @player.id), method: :delete, class: 'btn'
         -# = link_to 'Delete Player', franchise_season_player_path(id: @player.id), method: :delete, class: 'btn'
 
 :javascript

@@ -39,8 +39,12 @@
 
     img {
       width: 100%;
-      max-width: 358px;
+      max-width: 200px;
+      border-radius: 50%;
+      border: 2px solid $orange;
     }
+
+    .btn { width: 100%; }
   }
 
   .exit {

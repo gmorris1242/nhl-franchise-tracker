@@ -23,6 +23,9 @@
 .column.lg-6
   = f.label :age, required: true
   = f.number_field :age
-.column
+.column.lg-6
+  = f.label :real_life_team
+  = f.text_field :real_life_team
+.column.lg-6
   = f.label :acquired
   = f.text_area :acquired, required: true
