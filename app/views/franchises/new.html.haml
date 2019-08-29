@@ -1,3 +1,7 @@
-= form_with scope: :franchise, url: franchises_path, local: true do |f|
-  = f.text_field :name
-  = f.submit
+%section
+  .row
+    .column
+      = form_with scope: :franchise, url: franchises_path, local: true do |f|
+        = f.label :name
+        = f.text_field :name
+        = f.submit 'Create', class: 'btn'

@@ -3,5 +3,8 @@
   = link_to 'Roster', franchise_season_players_path(season_id: season_id), class: 'btn'
   = link_to 'Draft', franchise_season_draftees_path(season_id: season_id), class: 'btn'
   = link_to 'Transaction', franchise_season_transactions_path(season_id: season_id), class: 'btn'
-.text-center
+
+.team-banner{ class: Franchise.find(params[:franchise_id]).name.tr(' ','-').tr('.','').downcase}
+  = image_tag get_team_logo(Franchise.find(params[:franchise_id]).name), class: 'logo'
+  %h2.heading= Franchise.find(params[:franchise_id]).name
   .text.bold= Season.find(season_id).year
