@@ -29,7 +29,7 @@ class TransactionsController < ApplicationController
     @transaction.first.destroy
 
     flash[:notice] = 'Post Deleted.'
-    redirect_to franchise_seasons_path
+    redirect_to franchise_season_transactions_path
   end
 
   private

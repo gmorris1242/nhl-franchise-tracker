@@ -18,9 +18,9 @@ class DrafteesController < ApplicationController
     @draftee = Draftee.where(season_id: params[:season_id], id: params[:id])
 
     if @draftee.update(draftee_params)
-      redirect_to franchise_season_players_path
+      redirect_to franchise_season_draftees_path
     else
-      redirect_to franchise_season_players_path
+      redirect_to franchise_season_draftees_path
     end
   end
   #

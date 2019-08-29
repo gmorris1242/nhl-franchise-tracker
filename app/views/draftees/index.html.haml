@@ -1,16 +1,31 @@
-#roster
+#draft
   .row
     .column.text-center
       = render 'layouts/season_nav', season_id: params[:season_id]
 
-%section
-  .row
-    .column.text-center
-      %h2.heading Draft
-      = link_to 'Add Player', new_franchise_season_draftee_path, class: 'btn'
-      %ul
+  %section
+    .row
+      .column.text-center
+        %h2.heading Draft
+        = link_to 'Add Player', new_franchise_season_draftee_path, class: 'btn'
+
+  %section.draft-list
+    .row
+      .column
         - @draftees.each do |draftee|
-          %li
-            = draftee.name
-            = link_to 'Edit Player', edit_franchise_season_draftee_path(id: draftee.id)
-            = link_to 'Delete Player', franchise_season_draftee_path(id: draftee.id), method: :delete
+          .draftee
+            %span.text
+              %b Round:
+              = draftee.round
+            %span.text
+              %b Name:
+              = link_to draftee.name, edit_franchise_season_draftee_path(id: draftee.id), class: 'name'
+            %span.text
+              %b Position:
+              = draftee.position
+            %span.text
+              %b Type:
+              = draftee.player_type
+            %span.text
+              %b Potential:
+              = draftee.potential

@@ -7,7 +7,8 @@ module ApplicationHelper
     logos = {
       'Detroit Red Wings' => 17,
       'Minnesota Wild' => 30,
-      'New York Islanders' => 2
+      'New York Islanders' => 2,
+      'New Jersey Devils' => 1
     }
 
     "https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/#{logos[team]}.svg"

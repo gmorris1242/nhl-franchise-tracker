@@ -1,7 +1,7 @@
 = f.hidden_field :season_id, value: params[:season_id]
+.column
+  = f.label :transaction_type
+  = f.select :transaction_type, options_for_select(['Trade', 'Free Agent', 'Wavier Claim'], selected: @transaction.nil? ? 'Trade' : @transaction.try(:transaction_type))
 
-= f.label :transaction_type
-= f.text_field :transaction_type
-
-= f.label :details
-= f.text_area :details
+  = f.label :details
+  = f.text_area :details

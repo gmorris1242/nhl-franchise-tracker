@@ -1,9 +1,19 @@
-= link_to 'Add Transaction', new_franchise_season_transaction_path
-= link_to 'Home', root_path
+#transactions
+  .row
+    .column.text-center
+      = render 'layouts/season_nav', season_id: params[:season_id]
 
-%ul
-  - @transactions.each do |transaction|
-    %li
-      = transaction.details
-      = link_to 'Edit Transaction', edit_franchise_season_transaction_path(id: transaction.id)
-      = link_to 'Delete Transaction', franchise_season_transaction_path(id: transaction.id), method: :delete
+  %section
+    .row
+      .column.text-center
+        %h2.heading Transactions
+        = link_to 'Add Transaction', new_franchise_season_transaction_path, class: 'btn'
+
+  %section
+    .row
+      .column
+        %ul.transactions
+          - @transactions.each do |transaction|
+            %li
+              = link_to transaction.transaction_type, edit_franchise_season_transaction_path(id: transaction.id), class: 'transaction-type'
+              %span.text= transaction.details
