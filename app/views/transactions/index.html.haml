@@ -5,15 +5,14 @@
 
   %section
     .row
-      .column.text-center
-        %h2.heading Transactions
-        = link_to 'Add Transaction', new_franchise_season_transaction_path, class: 'btn'
-
-  %section
-    .row
       .column
         %ul.transactions
           - @transactions.each do |transaction|
             %li
               = link_to transaction.transaction_type, edit_franchise_season_transaction_path(id: transaction.id), class: 'transaction-type'
               %span.text= transaction.details
+
+
+  .row
+    .column.text-center
+      = link_to 'Add Transaction', new_franchise_season_transaction_path, class: 'btn'

@@ -1,0 +1,10 @@
+.season-nav {
+  overflow: hidden;
+  max-height: 0;
+
+  @media (min-width: 600px) {
+    max-height: none;
+  }
+
+  &.open { max-height: none; }
+}

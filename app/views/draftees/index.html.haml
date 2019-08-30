@@ -3,12 +3,6 @@
     .column.text-center
       = render 'layouts/season_nav', season_id: params[:season_id]
 
-  %section
-    .row
-      .column.text-center
-        %h2.heading Draft
-        = link_to 'Add Player', new_franchise_season_draftee_path, class: 'btn'
-
   %section.draft-list
     .row
       .column
@@ -29,3 +23,7 @@
             %span.text
               %b Potential:
               = draftee.potential
+
+  .row
+    .column.text-center
+      = link_to 'Add Player', new_franchise_season_draftee_path, class: 'btn'

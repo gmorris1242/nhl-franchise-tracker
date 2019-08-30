@@ -4,12 +4,6 @@
 
 %section
   .row
-    .column.text-center
-      %h2.heading Stats
-      = link_to 'Edit Stats', edit_franchise_season_stat_path(id: @stats.first.id), class: 'btn'
-
-%section
-  .row
     .column.lg-6.text-center
       %h3.heading Season
       %p.text
@@ -53,3 +47,7 @@
       %p.text
         %b Wins:
         #{@stats.first.wins_leader} - #{@stats.first.wins_total}
+
+  .row
+    .column.text-center
+      = link_to 'Edit Stats', edit_franchise_season_stat_path(id: @stats.first.id), class: 'btn'

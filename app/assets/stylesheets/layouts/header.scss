@@ -9,6 +9,11 @@ header {
       list-style: none;
       display: flex;
       flex-direction: row;
+      display: block;
+
+      @media (min-width: 900px) {
+        display: flex;
+      }
 
       .links {
         font-family: $heading-font;
@@ -27,6 +32,7 @@ header {
           max-height: none;
           padding: 10px 20px;
           border: 2px solid;
+          background: $white;
         }
       }
 

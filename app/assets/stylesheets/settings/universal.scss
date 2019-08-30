@@ -4,7 +4,9 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 0 0 1rem 0;
-  font-size: 45px;
+  font-size: 32px;
+
+  @media (min-width: 900px) { font-size: 45px; }
 }
 
 .text {

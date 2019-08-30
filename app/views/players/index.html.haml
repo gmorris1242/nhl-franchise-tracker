@@ -3,12 +3,6 @@
     .column.text-center
       = render 'layouts/season_nav', season_id: params[:season_id]
 
-  %section
-    .row
-      .column.text-center
-        %h2.heading Roster
-        = link_to 'Add Player', new_franchise_season_player_path, class: 'btn'
-
   %section.lineup
     .row
       .column.lg-4
@@ -48,6 +42,10 @@
           .player-card{data: {player_id: player.id}}
             %span.text=player.name
             %span.text.bold #{player.player_type} #{player.overall}
+
+    .row
+      .column.text-center
+        = link_to 'Add Player', new_franchise_season_player_path, class: 'btn'
 
 :javascript
   $('.player-card').click(function() {
