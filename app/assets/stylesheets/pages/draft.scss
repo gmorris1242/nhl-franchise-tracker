@@ -1,18 +1,14 @@
 #draft {
   .draft-list {
-    .text {
-      display: inline-block;
-      margin: 10px;
-    }
+    .text { margin: 10px; }
 
-    .name {
+    .round { font-size: 20px; }
+
+    a{
       color: $black;
       text-decoration: none;
 
-      &:hover {
-        color: $orange;
-        text-decoration: underline;
-      }
+      &:hover { color: $orange; }
     }
   }
 }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_30_154720) do
+ActiveRecord::Schema.define(version: 2019_08_30_195656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_08_30_154720) do
     t.bigint "season_id"
     t.string "name"
     t.integer "round"
-    t.integer "year"
+    t.integer "draft_position"
     t.string "position"
     t.string "potential"
     t.string "player_type"

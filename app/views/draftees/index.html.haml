@@ -7,23 +7,18 @@
     .row
       .column
         - @draftees.each do |draftee|
-          .draftee
-            %span.text
-              %b Round:
-              = draftee.round
-            %span.text
-              %b Name:
-              = link_to draftee.name, edit_franchise_season_draftee_path(id: draftee.id), class: 'name'
-            %span.text
-              %b Position:
-              = draftee.position
-            %span.text
-              %b Type:
-              = draftee.player_type
-            %span.text
-              %b Potential:
-              = draftee.potential
-
+          .draftee.text-center
+            %p.text.round
+              %b #{draftee.round.ordinalize} Round
+            %p.text
+              = link_to edit_franchise_season_draftee_path(id: draftee.id) do
+                %p.text
+                  %b= draftee.position
+                  -# %b= draftee.draft_position
+                  = draftee.name
+                  %b= draftee.player_type
+                  %i= draftee.potential
+                  (#{draftee.draft_position.ordinalize} Overall)
   .row
     .column.text-center
       = link_to 'Add Player', new_franchise_season_draftee_path, class: 'btn'

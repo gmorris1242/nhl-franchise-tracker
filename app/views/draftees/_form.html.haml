@@ -2,19 +2,19 @@
 
 .column.lg-6
   = f.label :name
-  = f.text_field :name
+  = f.text_field :name, required: true
 .column.lg-6
   = f.label :player_type
-  = f.text_field :player_type
+  = f.select :player_type, options_for_select(get_player_types, selected: @draftee.nil? ? 'SNP' : @draftee.try(:player_type))
 .column.lg-6
   = f.label :position
-  = f.select :position, options_for_select(['Center', 'Left Wing', 'Right Wing', 'Left Defense', 'Right Defense', 'Goalie'], selected: @draftee.nil? ? 'Center' : @draftee.try(:position))
+  = f.select :position, options_for_select(['C', 'LW', 'RW', 'LD', 'RD', 'G'], selected: @draftee.nil? ? 'C' : @draftee.try(:position))
 .column.lg-6
   = f.label :potential
-  = f.text_field :potential
+  = f.text_field :potential, required: true
 .column.lg-6
   = f.label :round
-  = f.number_field :round
+  = f.number_field :round, required: true
 .column.lg-6
-  = f.label :year
-  = f.number_field :year
+  = f.label :draft_position, 'Overall Draft Position'
+  = f.number_field :draft_position, required: true

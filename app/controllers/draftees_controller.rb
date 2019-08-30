@@ -35,7 +35,7 @@ class DrafteesController < ApplicationController
   private
 
   def draftee_params
-    params.require(:draftee).permit(:name, :round, :year, :position, :potential,
-                                   :season_id, :player_type);
+    params.require(:draftee).permit(:name, :round, :position, :potential,
+                                   :season_id, :player_type, :draft_position);
   end
 end
