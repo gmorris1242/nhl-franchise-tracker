@@ -46,8 +46,9 @@
 
     .column.text-center
       %h3.heading Notes
-      %p.text
-        - @stats.first.notes.split("\r\n").each do |note|
-          = note
-          %br
+      - unless @stats.first.notes.nil?
+        %p.text
+          - @stats.first.notes.split("\r\n").each do |note|
+            = note
+            %br
       = link_to 'Edit Stats', edit_franchise_season_stat_path(id: @stats.first.id), class: 'btn'
