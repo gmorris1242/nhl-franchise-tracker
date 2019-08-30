@@ -12,4 +12,4 @@
         .md-show
           %p.text.fake-btn Seasons: #{franchise.seasons.count}
           %p.text.fake-btn Created: #{franchise.created_at.strftime("%b %d, %Y")}
-        = link_to 'Delete', franchise_path(id: franchise.id), method: :delete, class: 'btn'
+        = link_to 'Delete', franchise_path(id: franchise.id), method: :delete, class: 'btn black'

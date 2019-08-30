@@ -67,7 +67,7 @@ module ApplicationHelper
     if players[player.name].nil?
       player.img.empty? ? 'placeholder.jpg' : player.img
     else
-      "https://nhl.bamcontent.com/images/headshots/current/168x168/#{players[player.name.titlecase]}.jpg"
+      "https://nhl.bamcontent.com/images/headshots/current/168x168/#{players[player.name]}.jpg"
     end
 
   end
