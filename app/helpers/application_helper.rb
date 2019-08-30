@@ -69,7 +69,10 @@ module ApplicationHelper
     else
       "https://nhl.bamcontent.com/images/headshots/current/168x168/#{players[player.name]}.jpg"
     end
+  end
 
+  def display_salary(salary)
+    number_with_delimiter(salary.to_i, :delimiter => ',')
   end
 
   private
@@ -108,5 +111,21 @@ module ApplicationHelper
       'Washington Capitals' => 15,
       'Winnipeg Jets' => 52
     }
+  end
+
+  def get_player_types
+    [
+      'PLY',
+      'SNP',
+      'TWF',
+      'GRN',
+      'ENF',
+      'OFD',
+      'TWD',
+      'DFD',
+      'HYB',
+      'BUT',
+      'STD'
+    ]
   end
 end

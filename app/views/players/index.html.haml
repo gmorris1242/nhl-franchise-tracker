@@ -8,39 +8,39 @@
       .column.lg-4
         %h3.heading Left Wing
         - organize_roster(@players,'Left Wing').each do |player|
-          .player-card{data: {player_id: player.id}}
-            %span.text=player.name
+          .player-card{ data: {player_id: player.id}, class: player.league == 'NHL' ? '' : 'minors' }
+            %span.text{ class: player.contract_length > 1 ? '' : 'expiring' }=player.name
             %span.text.bold #{player.player_type} #{player.overall}
       .column.lg-4
         %h3.heading Center
         - organize_roster(@players,'Center').each do |player|
-          .player-card{data: {player_id: player.id}}
-            %span.text=player.name
+          .player-card{ data: {player_id: player.id}, class: player.league == 'NHL' ? '' : 'minors' }
+            %span.text{ class: player.contract_length > 1 ? '' : 'expiring' }=player.name
             %span.text.bold #{player.player_type} #{player.overall}
       .column.lg-4
         %h3.heading Right Wing
         - organize_roster(@players,'Right Wing').each do |player|
-          .player-card{data: {player_id: player.id}}
-            %span.text=player.name
+          .player-card{ data: {player_id: player.id}, class: player.league == 'NHL' ? '' : 'minors' }
+            %span.text{ class: player.contract_length > 1 ? '' : 'expiring' }=player.name
             %span.text.bold #{player.player_type} #{player.overall}
     .row
       .column.lg-4
         %h3.heading Left Defense
         - organize_roster(@players,'Left Defense').each do |player|
-          .player-card{data: {player_id: player.id}}
-            %span.text=player.name
+          .player-card{ data: {player_id: player.id}, class: player.league == 'NHL' ? '' : 'minors' }
+            %span.text{ class: player.contract_length > 1 ? '' : 'expiring' }=player.name
             %span.text.bold #{player.player_type} #{player.overall}
       .column.lg-4
         %h3.heading Right Defense
         - organize_roster(@players,'Right Defense').each do |player|
-          .player-card{data: {player_id: player.id}}
-            %span.text=player.name
+          .player-card{ data: {player_id: player.id}, class: player.league == 'NHL' ? '' : 'minors' }
+            %span.text{ class: player.contract_length > 1 ? '' : 'expiring' }=player.name
             %span.text.bold #{player.player_type} #{player.overall}
       .column.lg-4
         %h3.heading Goalie
         - organize_roster(@players,'Goalie').each do |player|
-          .player-card{data: {player_id: player.id}}
-            %span.text=player.name
+          .player-card{ data: {player_id: player.id}, class: player.league == 'NHL' ? '' : 'minors' }
+            %span.text{ class: player.contract_length > 1 ? '' : 'expiring' }=player.name
             %span.text.bold #{player.player_type} #{player.overall}
 
     .row

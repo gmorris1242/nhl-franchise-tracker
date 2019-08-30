@@ -3,14 +3,14 @@
   = f.label :name
   = f.text_field :name, required: true
 .column.lg-6
-  = f.label :img
+  = f.label :img, 'Custom Image URL'
   = f.text_field :img
 .column.lg-6
   = f.label :position
   = f.select :position, options_for_select(['Center', 'Left Wing', 'Right Wing', 'Left Defense', 'Right Defense', 'Goalie'], selected: @player.nil? ? 'Center' : @player.try(:position))
 .column.lg-6
   = f.label :salary
-  = f.number_field :salary, step: :any, required: true
+  = f.number_field :salary, required: true
 .column.lg-6
   = f.label :contract_length
   = f.number_field :contract_length, required: true
@@ -19,13 +19,19 @@
   = f.number_field :overall, required: true
 .column.lg-6
   = f.label :player_type
-  = f.text_field :player_type, required: true
+  = f.select :player_type, options_for_select(get_player_types, selected: @player.nil? ? 'SNP' : @player.try(:player_type))
 .column.lg-6
   = f.label :age, required: true
   = f.number_field :age
 .column.lg-6
+  = f.label :league
+  = f.select :league, options_for_select(['NHL', 'AHL', 'Other'], selected: @player.nil? ? 'NHL' : @player.try(:league))
+.column.lg-6
+  = f.label :morale
+  = f.select :morale, options_for_select(['Unknown', 'Frist', 'Second', 'Thrid', 'Fourth'], selected: @player.nil? ? 'Unkown' : @player.try(:morale))
+.column.lg-6
   = f.label :real_life_team
-  = f.text_field :real_life_team
+  = f.select :real_life_team, options_for_select(get_team_id.keys, selected: @player.nil? ? 'Anaheim Ducks' : @player.try(:real_life_team))
 .column.lg-6
   = f.label :acquired
   = f.text_area :acquired, required: true

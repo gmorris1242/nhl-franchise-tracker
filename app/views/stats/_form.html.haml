@@ -39,4 +39,4 @@
   = f.select :results, options_for_select(['Missed Playoffs', '1st Round', '2nd Round', 'Conferenece Finals', 'Stanley Cup Finals', 'Stanley Cup Champions!'], selected: @stats.first.results)
 .column
   = f.label :notes
-  = f.text_area :notes, value: @stats.first.notes
+  = f.text_area :notes, value: @stats.first.notes, class: 'large-textarea'

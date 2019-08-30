@@ -33,7 +33,6 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
-
   end
 
   private
@@ -41,6 +40,7 @@ class PlayersController < ApplicationController
   def player_params
     params.require(:player).permit(:name, :season_id, :img, :position, :salary,
                                    :contract_length, :overall, :age,
-                                   :player_type, :acquired, :real_life_team);
+                                   :player_type, :acquired, :real_life_team,
+                                   :league, :morale);
   end
 end

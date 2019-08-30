@@ -5,28 +5,34 @@
       .column.lg-6
         %p.text
           %b Name:
-          #{@player.name}
+          = @player.name
         %p.text
           %b Position:
-          #{@player.position}
+          = @player.position
         %p.text
           %b Overall:
-          #{@player.overall}
+          = @player.overall
         %p.text
           %b Player Type:
-          #{@player.player_type}
+          = @player.player_type
         %p.text
           %b Salary:
-          #{@player.salary}
+          = "$#{display_salary(@player.salary)}"
         %p.text
           %b Years Remaining:
-          #{@player.contract_length}
+          = @player.contract_length
         %p.text
           %b Age:
-          #{@player.age}
+          = @player.age
         %p.text
           %b Acquired:
-          #{@player.acquired}
+          = @player.acquired
+        %p.text
+          %b League:
+          = @player.league
+        %p.text
+          %b Morale:
+          = @player.morale
 
       .column.lg-6
         .text-center

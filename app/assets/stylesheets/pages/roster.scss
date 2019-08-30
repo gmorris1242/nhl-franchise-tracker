@@ -20,6 +20,41 @@
       }
     }
   }
+
+  .minors {
+    color: #76bad4;
+    font-style: italic;
+  }
+
+  .expiring {
+    position: relative;
+
+    &:before {
+      content: '';
+      background: red;
+      width: 7px;
+      height: 7px;
+      display: inline-block;
+      border-radius: 50%;
+      margin: 0 5px;
+    }
+
+    &:after {
+      content: 'Contract Expiring';
+      background: $white;
+      display: none;
+      position: absolute;
+      top: 0;
+      border: 2px solid;
+      color: $orange;
+      z-index: 200;
+      width: 150%;
+    }
+
+    &:hover {
+      &:after { display: block; }
+    }
+  }
 }
 
 .modal {
@@ -31,6 +66,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 999;
 
   .card {
     background: $white;
