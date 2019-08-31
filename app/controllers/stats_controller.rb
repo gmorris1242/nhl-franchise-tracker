@@ -1,4 +1,7 @@
 class StatsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :redirect_wrong_user
+
   def index
     @stats = Stat.where(season_id: params[:season_id])
   end
@@ -24,5 +27,9 @@ class StatsController < ApplicationController
                                  :goal_leader, :assist_leader, :points_leader,
                                  :wins_leader, :results, :notes, :goal_total,
                                  :assist_total, :points_total, :wins_total)
+  end
+
+  def redirect_wrong_user
+    redirect_to :root unless Franchise.find(params[:franchise_id]).user_id == current_user.id
   end
 end

@@ -1,4 +1,7 @@
 class TransactionsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :redirect_wrong_user
+
   def index
     @transactions = Transaction.where(season_id: params[:season_id])
   end
@@ -36,5 +39,9 @@ class TransactionsController < ApplicationController
 
   def transaction_params
     params.require(:transaction).permit(:transaction_type, :details, :season_id)
+  end
+
+  def redirect_wrong_user
+    redirect_to :root unless Franchise.find(params[:franchise_id]).user_id == current_user.id
   end
 end

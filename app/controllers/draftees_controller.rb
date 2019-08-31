@@ -1,4 +1,7 @@
 class DrafteesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :redirect_wrong_user
+
   def index
     @draftees = Draftee.where(season_id: params[:season_id])
   end
@@ -37,5 +40,9 @@ class DrafteesController < ApplicationController
   def draftee_params
     params.require(:draftee).permit(:name, :round, :position, :potential,
                                    :season_id, :player_type, :draft_position);
+  end
+
+  def redirect_wrong_user
+    redirect_to :root unless Franchise.find(params[:franchise_id]).user_id == current_user.id
   end
 end
