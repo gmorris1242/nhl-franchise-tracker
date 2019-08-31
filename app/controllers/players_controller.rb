@@ -1,4 +1,7 @@
 class PlayersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :redirect_wrong_user
+
   def index
     @players = Player.where(season_id: params[:season_id])
   end
@@ -42,5 +45,9 @@ class PlayersController < ApplicationController
                                    :contract_length, :overall, :age,
                                    :player_type, :acquired, :real_life_team,
                                    :league, :morale);
+  end
+
+  def redirect_wrong_user
+    redirect_to :root unless Franchise.find(params[:franchise_id]).user_id == current_user.id
   end
 end

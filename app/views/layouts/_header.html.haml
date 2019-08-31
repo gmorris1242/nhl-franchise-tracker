@@ -13,3 +13,4 @@
                 - get_seasons_for_nav.each do |season|
                   %li
                     = link_to season.year, franchise_season_players_path(season.franchise_id, season.id)
+          %li= link_to 'Log Out', destroy_user_session_path, class: 'links'

@@ -1,11 +1,12 @@
 class FranchisesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @franchises = Franchise.all
+    @franchises = Franchise.where(user_id: current_user.id)
   end
 
   def create
     @franchise = Franchise.new(franchise_params)
-
     if @franchise.save
       redirect_to franchises_path
     else
@@ -24,6 +25,6 @@ class FranchisesController < ApplicationController
   private
 
   def franchise_params
-    params.require(:franchise).permit(:name)
+    params.require(:franchise).permit(:name, :user_id)
   end
 end

@@ -2,6 +2,7 @@
   .row
     .column
       = form_with scope: :franchise, url: franchises_path, local: true do |f|
+        = f.hidden_field :user_id, value: current_user.id
         = f.label :name
         = f.text_field :name
         = f.submit 'Create', class: 'btn'
