@@ -44,7 +44,7 @@
         %b Wins:
         #{@stats.first.wins_leader} - #{@stats.first.wins_total}
 
-    - if @stats.first&.stanley_cup_champ
+    - if @stats.first.try(:stanley_cup_champ)
       .column
         .stanley-cup.text-center
           = image_tag 'stanley_cup.png'
