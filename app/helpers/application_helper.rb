@@ -118,6 +118,7 @@ module ApplicationHelper
       'PLY',
       'SNP',
       'TWF',
+      'PWF',
       'GRN',
       'ENF',
       'OFD',
