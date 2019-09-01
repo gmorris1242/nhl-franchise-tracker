@@ -1,5 +1,5 @@
 module ApplicationHelper
-  require 'HTTParty'
+  require 'httparty'
 
   def get_seasons_for_nav()
     @seasons =  Season.where(franchise_id: params[:franchise_id])
