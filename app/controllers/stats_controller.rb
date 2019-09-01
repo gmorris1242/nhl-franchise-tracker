@@ -26,7 +26,8 @@ class StatsController < ApplicationController
     params.require(:stat).permit(:wins, :losses, :overtime_losses, :points,
                                  :goal_leader, :assist_leader, :points_leader,
                                  :wins_leader, :results, :notes, :goal_total,
-                                 :assist_total, :points_total, :wins_total)
+                                 :assist_total, :points_total, :wins_total,
+                                 :stanley_cup_champ)
   end
 
   def redirect_wrong_user

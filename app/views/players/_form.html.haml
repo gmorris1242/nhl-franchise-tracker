@@ -28,7 +28,7 @@
   = f.select :league, options_for_select(['NHL', 'AHL', 'Other'], selected: @player.nil? ? 'NHL' : @player.try(:league))
 .column.lg-6
   = f.label :morale
-  = f.select :morale, options_for_select(['Unknown', 'Frist', 'Second', 'Thrid', 'Fourth'], selected: @player.nil? ? 'Unkown' : @player.try(:morale))
+  = f.select :morale, options_for_select(['Unknown', 'Frist', 'Second', 'Third', 'Fourth'], selected: @player.nil? ? 'Unkown' : @player.try(:morale))
 .column.lg-6
   = f.label :real_life_team
   = f.select :real_life_team, options_for_select(get_team_id.keys, selected: @player.nil? ? 'Anaheim Ducks' : @player.try(:real_life_team))
