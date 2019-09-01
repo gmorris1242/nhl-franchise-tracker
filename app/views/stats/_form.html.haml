@@ -39,7 +39,7 @@
   = f.select :results, options_for_select(['Missed Playoffs', '1st Round', '2nd Round', 'Conferenece Finals', 'Stanley Cup Finals', 'Stanley Cup Champions!'], selected: @stats.first.results)
 .column.lg-6
   = f.label :stanley_cup_champ
-  = f.text_field :stanley_cup_champ, value: @stats.first.stanley_cup_champ
+  = f.text_field :stanley_cup_champ, value: @stats.first.try(:stanley_cup_champ)
 .column
   = f.label :notes
   = f.text_area :notes, value: @stats.first.notes, class: 'large-textarea'
