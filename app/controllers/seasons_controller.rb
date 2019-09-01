@@ -45,6 +45,6 @@ class SeasonsController < ApplicationController
   end
 
   def redirect_wrong_user
-    redirect_to :root unless Franchise.find(params[:franchise_id]).user_id == current_user.id
+    redirect_to :root unless Franchise.find(params[:franchise_id]).user_id == current_user.id unless Franchise.all.count == 0
   end
 end
