@@ -14,11 +14,11 @@
             %th.heading Cup Champs
         - @seasons.each do |season|
           %tr
-            %td.text.year= season.year
-            %td.text.team= Franchise.find(season.franchise_id).name
-            %td.text.wins= season.stat.wins
-            %td.text.loses= season.stat.losses
-            %td.text.otl= season.stat.overtime_losses
-            %td.text.points= season.stat.points
-            %td.text.results= season.stat.results
-            %td.text.cup= season.stat.stanley_cup_champ
+            %td.text.year{ class: season.stat.results == 'Stanley Cup Champions!' ? 'bold' : '' }= season.year
+            %td.text.team{ class: season.stat.results == 'Stanley Cup Champions!' ? 'bold' : '' }= Franchise.find(season.franchise_id).name
+            %td.text.wins{ class: season.stat.results == 'Stanley Cup Champions!' ? 'bold' : '' }= season.stat.wins
+            %td.text.loses{ class: season.stat.results == 'Stanley Cup Champions!' ? 'bold' : '' }= season.stat.losses
+            %td.text.otl{ class: season.stat.results == 'Stanley Cup Champions!' ? 'bold' : '' }= season.stat.overtime_losses
+            %td.text.points{ class: season.stat.results == 'Stanley Cup Champions!' ? 'bold' : '' }= season.stat.points
+            %td.text.results{ class: season.stat.results == 'Stanley Cup Champions!' ? 'bold' : '' }= season.stat.results
+            %td.text.cup{ class: season.stat.results == 'Stanley Cup Champions!' ? 'bold' : '' }= season.stat.stanley_cup_champ
