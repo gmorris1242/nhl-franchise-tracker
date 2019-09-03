@@ -49,7 +49,7 @@ class FranchisesController < ApplicationController
     @franchise =  Franchise.find(params[:id])
     @franchise.destroy
 
-    flash[:notice] = 'Post Deleted.'
+    flash[:notice] = 'Franchise Deleted.'
     redirect_to root_path
   end
 

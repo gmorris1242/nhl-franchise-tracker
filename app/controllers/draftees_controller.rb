@@ -31,7 +31,7 @@ class DrafteesController < ApplicationController
     @draftee = Draftee.where(season_id: params[:season_id], id: params[:id])
     @draftee.first.destroy
 
-    flash[:notice] = 'Post Deleted.'
+    flash[:notice] = 'Player Deleted.'
     redirect_to franchise_seasons_path
   end
 

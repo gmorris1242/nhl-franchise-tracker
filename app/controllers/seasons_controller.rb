@@ -36,7 +36,7 @@ class SeasonsController < ApplicationController
     @season =  Season.where(franchise_id: params[:franchise_id], id: params[:id])
     @season.first.destroy
 
-    flash[:notice] = 'Post Deleted.'
+    flash[:notice] = 'Season Deleted.'
     redirect_to franchise_seasons_path
   end
 

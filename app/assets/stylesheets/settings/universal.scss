@@ -14,10 +14,8 @@
   margin: 0 0 1rem 0;
 }
 
-
 //HELPERS
 .orange { color: $orange; }
-
 
 //TEAM COLORS
 .team-banner,
@@ -211,4 +209,11 @@
   background: #041E42;
   color: #A2AAAD;
   border: 4px solid;
+}
+
+
+//ALERTS
+.alert {
+  text-align: center;
+  font-family: $text-font;
 }

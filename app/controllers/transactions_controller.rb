@@ -31,7 +31,7 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.where(season_id: params[:season_id], id: params[:id])
     @transaction.first.destroy
 
-    flash[:notice] = 'Post Deleted.'
+    flash[:notice] = 'Transaction Deleted.'
     redirect_to franchise_season_transactions_path
   end
 

@@ -23,4 +23,4 @@
               %span.text
                 %b.orange Results:
                 #{season.stat.results}
-            = link_to 'Delete', franchise_season_path(season.franchise_id, season.id), method: :delete, class: 'btn black'
+            = link_to 'Delete', franchise_season_path(season.franchise_id, season.id), method: :delete, class: 'btn black', data: {confirm: "Are You Sure?"}

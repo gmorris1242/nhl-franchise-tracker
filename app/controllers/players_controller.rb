@@ -30,7 +30,7 @@ class PlayersController < ApplicationController
   def destroy
     @player = Player.find(params[:id])
     @player.destroy
-    flash[:notice] = 'Post Deleted.'
+    flash[:notice] = 'Player Deleted.'
     redirect_to franchise_season_players_path
   end
 
