@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!
 
   def records
-    redirect_to :root unless current_user
     @seasons = []
     franchises  = Franchise.where(user_id: current_user.id)
     franchises.each do |franchise|
@@ -10,4 +10,5 @@ class PagesController < ApplicationController
       end
     end
   end
+
 end
