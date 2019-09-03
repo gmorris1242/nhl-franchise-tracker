@@ -22,8 +22,9 @@ class SeasonsController < ApplicationController
     last_seasons_players.each do |player|
       player_copy = player.dup
 
-      player_copy.contract_length = player_copy.contract_length > 0 ? player_copy.contract_length - 1 : player_copy._contract_length
+      player_copy.contract_length = player_copy.contract_length > 0 ? player_copy.contract_length - 1 : player_copy.contract_length
       player_copy.age = player_copy.age + 1
+      player_copy.league = player_copy.contract_length > 0 ? player_copy.league : 'Other'
 
       Player.new(player_copy.attributes.merge(season_id: @season.id)).save
     end

@@ -6,7 +6,7 @@ module ApplicationHelper
   end
 
   def get_team_logo(team)
-    "https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/#{get_team_id[team]}.svg"
+    get_team_id[team].nil? ? 'logos/nhl_logo.png' : "https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/#{get_team_id[team]}.svg"
   end
 
   def organize_roster(players, position)

@@ -13,7 +13,7 @@
   = f.number_field :salary, required: true
 .column.lg-6
   = f.label :contract_length
-  = f.number_field :contract_length, required: true
+  = f.number_field :contract_length, required: true, min: 1
 .column.lg-6
   = f.label :overall
   = f.number_field :overall, required: true

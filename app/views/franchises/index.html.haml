@@ -4,7 +4,7 @@
       %h1.heading Franchise
       =link_to 'New Franchise', new_franchise_path, class: 'btn'
       -@franchises.each do |franchise|
-        .card.relative{ class: franchise.name.tr(' ', '-').tr('.','').downcase}
+        .card.relative.franchise-card{ class: franchise.name.tr(' ', '-').tr('.','').downcase}
           = link_to franchise_seasons_path(franchise.id), class: 'link-wrapper' do
             .wrapper
               %h2.heading.md-show=franchise.name

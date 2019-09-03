@@ -20,6 +20,13 @@
 
 
 //TEAM COLORS
+.team-banner,
+.franchise-card {
+  background: $black;
+  color: $orange;
+  border: 4px solid;
+}
+
 .anaheim-ducks {
   background: $black;
   color: #FC4C02;

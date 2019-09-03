@@ -15,26 +15,27 @@ class FranchisesController < ApplicationController
     response = HTTParty.get("https://statsapi.web.nhl.com/api/v1/teams/#{get_team_id[@franchise.name]}/roster")
     roster = response.parsed_response['roster']
 
-    roster.each do |roster_spot|
+    if roster
+      roster.each do |roster_spot|
 
+        player = {
+          name: roster_spot['person']['fullName'],
+          position: roster_spot['position']['name'] == 'Defenseman' ? 'Left Defense' : roster_spot['position']['name'],
+          salary: 1000000,
+          contract_length: 1,
+          overall: 55,
+          age: 18,
+          acquired: 'Free Agent',
+          season_id: @franchise.seasons.first.id,
+          img: '',
+          player_type: 'TWF',
+          real_life_team: @franchise.name,
+          league: 'NHL',
+          morale: 'Unknown'
+        }
 
-      player = {
-        name: roster_spot['person']['fullName'],
-        position: roster_spot['position']['name'] == 'Defenseman' ? 'Left Defense' : roster_spot['position']['name'],
-        salary: 0,
-        contract_length: 0,
-        overall: 55,
-        age: 18,
-        acquired: 'Free Agent',
-        season_id: @franchise.seasons.first.id,
-        img: '',
-        player_type: 'TWF',
-        real_life_team: @franchise.name,
-        league: 'NHL',
-        morale: 'Unknown'
-      }
-
-      @franchise.seasons.first.players.new(player).save
+        @franchise.seasons.first.players.new(player).save
+      end
     end
 
     if @franchise.save
