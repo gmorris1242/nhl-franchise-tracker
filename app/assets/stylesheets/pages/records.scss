@@ -1,0 +1,39 @@
+#records {
+  .heading {
+    font-size: 18px;
+  }
+
+  td {
+    padding: 5px 20px;
+    display: block;
+
+    @media (min-width: 600px) { display: table-cell; }
+  }
+
+  thead {
+    display: none;
+
+    @media (min-width: 600px) { display: table-header-group; }
+  }
+
+  tr {
+    &:nth-child(even) { background: #d7d7d7; }
+  }
+
+  td {
+    &:before {
+      font-weight: bold;
+
+      @media (min-width: 600px) { display: none; }
+    }
+
+    &.year:before { content: 'Year: '; }
+    &.team:before { content: 'Team: '; }
+    &.wins:before { content: 'Wins: '; }
+    &.loses:before { content: 'Loses: '; }
+    &.otl:before { content: 'OTL: '; }
+    &.points:before { content: 'Points: '; }
+    &.results:before { content: 'Results: '; }
+    &.cup:before { content: 'Cup Champs: '; }
+  }
+}

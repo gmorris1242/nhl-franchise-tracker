@@ -1,0 +1,24 @@
+#records
+  .row
+    .column
+      %table
+        %thead
+          %tr
+            %th.heading Year
+            %th.heading Team
+            %th.heading Wins
+            %th.heading Loses
+            %th.heading OTL
+            %th.heading Points
+            %th.heading Results
+            %th.heading Cup Champs
+        - @seasons.each do |season|
+          %tr
+            %td.text.year= season.year
+            %td.text.team= Franchise.find(season.franchise_id).name
+            %td.text.wins= season.stat.wins
+            %td.text.loses= season.stat.losses
+            %td.text.otl= season.stat.overtime_losses
+            %td.text.points= season.stat.points
+            %td.text.results= season.stat.results
+            %td.text.cup= season.stat.stanley_cup_champ
