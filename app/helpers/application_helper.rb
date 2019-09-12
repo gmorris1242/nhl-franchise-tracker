@@ -65,7 +65,7 @@ module ApplicationHelper
     end
 
     if players[player.name].nil?
-      player.img.empty? ? 'placeholder.jpg' : player.img
+      player.img.empty? ? 'placeholder.jpg' : valid_url?(player.img) ? player.img : 'placeholder.jpg'
     else
       "https://nhl.bamcontent.com/images/headshots/current/168x168/#{players[player.name]}.jpg"
     end
@@ -128,5 +128,15 @@ module ApplicationHelper
       'BUT',
       'STD'
     ]
+  end
+
+  def valid_url?(url)
+    require 'open-uri'
+
+    begin
+      open(url).status == ["200", "OK"]
+    rescue
+      false
+    end
   end
 end
