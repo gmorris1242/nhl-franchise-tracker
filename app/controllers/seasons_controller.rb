@@ -2,7 +2,6 @@ class SeasonsController < ApplicationController
   before_action :authenticate_user!
   before_action :redirect_wrong_user
 
-
   def index
     @seasons = Season.where(franchise_id: params[:franchise_id])
   end
